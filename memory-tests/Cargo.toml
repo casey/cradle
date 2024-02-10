@@ -6,5 +6,5 @@ publish = false
 
 [dependencies]
 anyhow = "1.0.42"
-cradle = { path = ".." }
+cradle = { path = "..", features = ["serde"] }
 rustversion = "1.0.5"

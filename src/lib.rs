@@ -1494,4 +1494,21 @@ mod tests {
             }
         }
     }
+
+    #[cfg(feature = "serde")]
+    mod json {
+        use super::*;
+
+        #[test]
+        fn json_can_be_deserialized() {
+            let Json(bar): Json<u32> = run_output!("echo", "100");
+            assert_eq!(bar, 100);
+        }
+
+        #[test]
+        fn json_errors() {
+            let Json(bar): Json<u32> = run_output!("echo", "null");
+            assert_eq!(bar, 100);
+        }
+    }
 }

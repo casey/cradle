@@ -1,8 +1,10 @@
 //! The [`Output`] trait that defines all possible outputs of a child process.
 
-use crate::{child_output::ChildOutput, config::Config, error::Error};
-use serde::de::DeserializeOwned;
-use std::process::ExitStatus;
+use {
+    crate::{child_output::ChildOutput, config::Config, error::Error},
+    serde::de::DeserializeOwned,
+    std::process::ExitStatus,
+};
 
 /// All possible return types of [`run!`], [`run_output!`] or
 /// [`run_result!`] must implement this trait.
@@ -179,7 +181,7 @@ impl Output for StdoutTrimmed {
 }
 
 #[derive(Debug)]
-pub struct Json<T: DeserializeOwned>(T);
+pub struct Json<T: DeserializeOwned>(pub T);
 
 impl<T: DeserializeOwned> Output for Json<T> {
     #[doc(hidden)]

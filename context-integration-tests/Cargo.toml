@@ -5,6 +5,6 @@ edition = "2018"
 publish = false
 
 [target.'cfg(unix)'.dependencies]
-cradle = { path = ".." }
+cradle = { path = "..", features = ["serde"] }
 executable-path = "1.0.0"
 gag = "0.1.10"
