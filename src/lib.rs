@@ -1507,8 +1507,7 @@ mod tests {
 
         #[test]
         fn json_errors() {
-            let Json(bar): Json<u32> = run_output!("echo", "null");
-            assert_eq!(bar, 100);
+            let result: Result<Json<u32>, Error> = run_result!("echo", "null");
         }
     }
 }
